@@ -1,0 +1,19 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:a3c71ec089d2636cf2767401878174d6:6332cbfcf208e8a5f9743c7782aae529:d82ffeff45a2fe2f927bcb01c5e56200$
+#
+:format=40300
+:texture=BasicShapes.png
+:size=512x512
+:pivotpoints=enabled
+:borders=disabled
+
+BasicShapes1;316;362;156;149; 0.5;0.5; 0;0;0;0
+BasicShapes2;1;17;165;153; 0.5;0.5; 0;0;0;0
+BasicShapes3;1;172;165;155; 0.5;0.5; 0;0;0;0
+BasicShapes4;149;358;165;153; 0.5;0.5; 0;0;0;0
+BasicShapes5;1;329;146;182; 0.5;0.5; 0;0;0;0
