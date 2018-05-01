@@ -5,27 +5,40 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour
 {
+    #region Varriables
+    //Section determines how many rays come out on each side of the player
+    [Header("Raycast Settings")]
+    [Tooltip("This determines the spacing between each raycast")]
+    public float distBetweenRays = .25f;
+    int horizRayCount;
+    int vertRayCount;
     const float skinWidth = .015f;
-    public int horizRayCount = 4;
-    public int vertRayCount = 4;
 
-    float maxClimbAngle = 80;
-    float maxDescendAngle = 75;
-
-    public LayerMask colMask;
-    public float speed = 5f;
-
+    //Determines the spacing between each raycast
     float horizRaySpacing;
     float vertRaySpacing;
 
+    //Raycast Varriables
     BoxCollider2D playerCol;
     RayCastOrigins raycastOrigins;
     public CollisionInfo collisions;
 
-	// Use this for initialization
-	void Start ()
+    [Header("Slope Varriables")]
+    public float maxClimbAngle = 80;
+    public float maxDescendAngle = 75;
+
+    [Header("Other Settings")]
+    [Tooltip("Used to determine what a player can not pass through")]
+    public LayerMask colMask;
+    #endregion
+
+    // Use this for initialization
+    void Awake()
     {
         playerCol = GetComponent<BoxCollider2D>();
+    }
+    void Start ()
+    {
         CalculateRaySpacing();
         collisions.faceDirection = 1;
     }
@@ -35,6 +48,7 @@ public class Controller2D : MonoBehaviour
 
     }
 
+    #region Collision Detections
     void HorizontalCollisions(ref Vector3 velocity)
     {
         float dirX = collisions.faceDirection;
@@ -50,7 +64,7 @@ public class Controller2D : MonoBehaviour
             rayOrigin += Vector2.up * (horizRaySpacing * i);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * dirX, rayLength, colMask);
 
-            Debug.DrawRay(rayOrigin, Vector2.right * dirX * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.right * dirX, Color.red);
 
             if (hit)
             {
@@ -99,7 +113,7 @@ public class Controller2D : MonoBehaviour
             rayOrigin += Vector2.right * (vertRaySpacing * i + velocity.x);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * dirY, rayLength, colMask);
 
-            Debug.DrawRay(rayOrigin, Vector2.up * dirY * rayLength, Color.red);
+            Debug.DrawRay(rayOrigin, Vector2.up * dirY, Color.red);
 
             if (hit)
             {
@@ -134,7 +148,9 @@ public class Controller2D : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Raycast
     void UpdateRaycastOrigins()
     {
         Bounds bounds = playerCol.bounds;
@@ -151,11 +167,14 @@ public class Controller2D : MonoBehaviour
         Bounds bounds = playerCol.bounds;
         bounds.Expand(skinWidth * -2);
 
-        horizRayCount = Mathf.Clamp(horizRayCount, 2, int.MaxValue);
-        vertRayCount = Mathf.Clamp(vertRayCount, 2, int.MaxValue);
+        float boundsWidth = bounds.size.x;
+        float boundsHeight = bounds.size.y;
+
+        horizRayCount = Mathf.RoundToInt(boundsHeight / distBetweenRays);
+        vertRayCount = Mathf.RoundToInt(boundsWidth / distBetweenRays);
 
         horizRaySpacing = bounds.size.y / (horizRayCount - 1);
-        vertRaySpacing = bounds.size.y / (vertRayCount - 1);
+        vertRaySpacing = bounds.size.x / (vertRayCount - 1);
 
     }
 
@@ -187,7 +206,9 @@ public class Controller2D : MonoBehaviour
             slopeAngle = 0;
         }
     }
+    #endregion
 
+    #region Movement
     public void Move(Vector3 velocity)
     {
         UpdateRaycastOrigins();
@@ -213,19 +234,9 @@ public class Controller2D : MonoBehaviour
 
         transform.Translate(velocity);
     }
+    #endregion
 
-    public void AutoMove()
-    {
-        if(transform.localScale.z == 1)
-        {
-            transform.Translate(1 * speed * Time.deltaTime, 0, 0);
-        }
-        else
-        {
-            transform.Translate(-1 * speed * Time.deltaTime, 0, 0);
-        }
-    }
-
+    #region Slope Detection
     void ClimbSlope(ref Vector3 velocity, float slopeAngle)
     {
         float moveDist = Mathf.Abs(velocity.x);
@@ -268,4 +279,5 @@ public class Controller2D : MonoBehaviour
             }
         }
     }
+    #endregion
 }

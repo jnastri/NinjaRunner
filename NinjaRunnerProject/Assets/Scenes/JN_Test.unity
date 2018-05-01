@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 272706888}
   - component: {fileID: 272706887}
   - component: {fileID: 272706886}
+  - component: {fileID: 272706890}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -165,7 +166,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -194,6 +195,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272706890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 272706885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7adc5d14635e3514b86314c7df271d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1929756618}
+  focusAreaSize: {x: 3, y: 5}
+  vertOffset: 0.5
+  lookAheadDistX: 4
+  lookSmoothTimeX: 0.6
+  verticalSmoothTime: 0.6
 --- !u!1 &534004895
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +803,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1929756613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.78, y: 0.74, z: 0}
+  m_LocalPosition: {x: 4.78, y: 0.776, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -816,12 +834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5286c044365c00f4c838de69104054a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizRayCount: 4
-  vertRayCount: 4
+  distBetweenRays: 0.25
+  maxClimbAngle: 80
+  maxDescendAngle: 75
   colMask:
     serializedVersion: 2
     m_Bits: 256
-  speed: 5
 --- !u!114 &1929756619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +855,6 @@ MonoBehaviour:
   timeToJumpApex: 0.4
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.1
-  moveSpeed: 10
+  moveSpeed: 15
   wallSlideSpeedMax: 3
   wallJump: {x: 30, y: 20}
