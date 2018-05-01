@@ -10,6 +10,9 @@ TextureImporter:
     21300006: BasicShapes3
     21300008: BasicShapes4
     21300010: BasicShapes5
+    21300012: Enemy1
+    21300014: Enemy2
+    21300016: Enemy3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -79,8 +82,8 @@ TextureImporter:
       name: BasicShapes1
       rect:
         serializedVersion: 2
-        x: 316
-        y: 362
+        x: 1
+        y: 333
         width: 156
         height: 149
       alignment: 0
@@ -93,8 +96,8 @@ TextureImporter:
       name: BasicShapes2
       rect:
         serializedVersion: 2
-        x: 1
-        y: 17
+        x: 315
+        y: 713
         width: 165
         height: 153
       alignment: 0
@@ -107,8 +110,8 @@ TextureImporter:
       name: BasicShapes3
       rect:
         serializedVersion: 2
-        x: 1
-        y: 172
+        x: 315
+        y: 868
         width: 165
         height: 155
       alignment: 0
@@ -121,8 +124,8 @@ TextureImporter:
       name: BasicShapes4
       rect:
         serializedVersion: 2
-        x: 149
-        y: 358
+        x: 269
+        y: 341
         width: 165
         height: 153
       alignment: 0
@@ -136,9 +139,51 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 329
+        y: 149
         width: 146
         height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Enemy1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 720
+        width: 312
+        height: 303
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Enemy2
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 496
+        width: 242
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Enemy3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 484
+        width: 266
+        height: 234
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
