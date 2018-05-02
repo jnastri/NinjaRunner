@@ -115,10 +115,13 @@ public class Player : MonoBehaviour
         {
             if (wallSliding)
             {
-                if (input.x == 0)
+                //This used to be if(input.x == 0)
+                if (input.x != 0)
                 {
                     velocity.x = -wallDirX * wallJump.x;
                     velocity.y = wallJump.y;
+                    //This did not exist
+                    transform.localScale = new Vector3(1, 1, -wallDirX);
                 }
             }
             if (playerController.collisions.below)
@@ -130,7 +133,15 @@ public class Player : MonoBehaviour
 
     void MovementController()
     {
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(transform.localScale.z == 1)
+        {
+            input = new Vector2(1, Input.GetAxisRaw("Vertical"));
+        }
+        else
+        {
+            input = new Vector2(-1, Input.GetAxisRaw("Vertical"));
+        }
+        //input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (playerController.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
