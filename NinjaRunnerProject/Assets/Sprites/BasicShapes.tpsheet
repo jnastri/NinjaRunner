@@ -4,19 +4,22 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # https://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:3d1b99cae514eb6912bdfaa1813d6095:b38da3102c21f084cc750d53ce2051f5:d82ffeff45a2fe2f927bcb01c5e56200$
+# $TexturePacker:SmartUpdate:210253eea7b629924f0320f4990ff541:575ee024e9b828bf46bad6126ddcfb96:d82ffeff45a2fe2f927bcb01c5e56200$
 #
 :format=40300
 :texture=BasicShapes.png
-:size=512x1024
+:size=1024x1024
 :pivotpoints=enabled
 :borders=disabled
 
-BasicShapes1;1;333;156;149; 0.5;0.5; 0;0;0;0
-BasicShapes2;315;713;165;153; 0.5;0.5; 0;0;0;0
-BasicShapes3;315;868;165;155; 0.5;0.5; 0;0;0;0
-BasicShapes4;269;341;165;153; 0.5;0.5; 0;0;0;0
-BasicShapes5;1;149;146;182; 0.5;0.5; 0;0;0;0
-Enemy1;1;720;312;303; 0.5;0.5; 0;0;0;0
-Enemy2;269;496;242;215; 0.5;0.5; 0;0;0;0
-Enemy3;1;484;266;234; 0.5;0.5; 0;0;0;0
+BasicShapes1;518;412;156;149; 0.5;0.5; 0;0;0;0
+BasicShapes2;1;408;165;153; 0.5;0.5; 0;0;0;0
+BasicShapes3;518;563;165;155; 0.5;0.5; 0;0;0;0
+BasicShapes4;685;417;165;153; 0.5;0.5; 0;0;0;0
+BasicShapes5;852;388;146;182; 0.5;0.5; 0;0;0;0
+Enemy1;422;720;312;303; 0.5;0.5; 0;0;0;0
+Enemy2;736;572;242;215; 0.5;0.5; 0;0;0;0
+Enemy3;736;789;266;234; 0.5;0.5; 0;0;0;0
+Scroll;315;441;201;277; 0.5;0.5; 0;0;0;0
+SmokeScreen;1;563;312;227; 0.5;0.5022026431718062; 0;0;0;0
+Turret;1;792;419;231; 0.5;0.5; 0;0;0;0
