@@ -29,7 +29,11 @@ public class EnemyBase : MonoBehaviour {
 
     EnemyController controller;
 
-    public bool goLeft; 
+    public bool goRight;
+    public bool Goomba;
+    public bool Lakitu;
+    public bool Rabbit; 
+    public bool doesEnemyFloat;
 
     // Use this for initialization
     void Start() {
@@ -67,26 +71,50 @@ public class EnemyBase : MonoBehaviour {
 
     void MovementController()
     {
-
-        if (goLeft)
+        if (Goomba)
         {
-            input = new Vector2(1, Input.GetAxisRaw("Vertical"));
-            if (controller.collisions.right)
+            if (goRight)
             {
-                transform.localScale = new Vector3(1, 1, -1);
-                goLeft = false;
+                input = new Vector2(1, Input.GetAxisRaw("Vertical"));
+                if (controller.collisions.right)
+                {
+                    transform.localScale = new Vector3(1, 1, -1);
+                    goRight = false;
+                }
+            }
+
+            else
+            {
+                input = new Vector2(-1, Input.GetAxisRaw("Vertical"));
+                if (controller.collisions.left)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                    goRight = true;
+                }
             }
         }
 
-        else
+        if (Lakitu)
         {
-            input = new Vector2(-1, Input.GetAxisRaw("Vertical"));
-            if (controller.collisions.left)
+            float lakituSpeed = moveSpeed;
+            if(!Rabbit)
+            doesEnemyFloat = true;
+
+            if(velocity.y == 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
-                goLeft = true;
+                velocity.y = -lakituSpeed;
+            }
+
+            if (controller.collisions.above)
+            {
+                velocity.y = -lakituSpeed;
+            }
+            else if (controller.collisions.below)
+            {
+                velocity.y = lakituSpeed;
             }
         }
+        
        /* if (transform.localScale.z == 1)
         {
             input = new Vector2(1, Input.GetAxisRaw("Vertical"));
@@ -98,7 +126,12 @@ public class EnemyBase : MonoBehaviour {
 
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborn);
-        velocity.y += gravity * Time.deltaTime;
+
+        if (!doesEnemyFloat)
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+        
         controller.Move(velocity * Time.deltaTime);
     }
 
