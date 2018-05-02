@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
     public Vector2 wallJump;
 
 
-    Vector3 velocity;
+    [HideInInspector]
+    public Vector3 velocity;
     float velocityXSmoothing;
 
     float jumpVelocity;
+    int jumpCount;
     float gravity;
 
     //Input that dictates character movement
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        jumpCount = 1;
     }
 	
 	// Update is called once per frame
@@ -48,45 +51,6 @@ public class Player : MonoBehaviour
         Obstacle_WallController();
         JumpController();
         MovementController();
-       /* input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        wallDirX = (playerController.collisions.left) ? -1 : 1;
-
-        wallSliding = false;
-        if ((playerController.collisions.left || playerController.collisions.right) && !playerController.collisions.below && velocity.y < 0)
-        {
-            wallSliding = true;
-            if (velocity.y < -wallSlideSpeedMax)
-            {
-                velocity.y = -wallSlideSpeedMax;
-            }
-        }
-
-        if (playerController.collisions.above || playerController.collisions.below)
-        {
-            velocity.y = 0;
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (wallSliding)
-            {
-                if (input.x == 0)
-                {
-                    velocity.x = -wallDirX * wallJump.x;
-                    velocity.y = wallJump.y;
-                }
-            }
-            if (playerController.collisions.below)
-            {
-                velocity.y = jumpVelocity;
-            }
-        }
-
-        float targetVelocityX = input.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (playerController.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
-        velocity.y += gravity * Time.deltaTime;
-        //playerController.AutoMove();
-        playerController.Move(velocity * Time.deltaTime);*/
     }
 
     void Obstacle_WallController()
@@ -122,11 +86,36 @@ public class Player : MonoBehaviour
                     velocity.y = wallJump.y;
                     //This did not exist
                     transform.localScale = new Vector3(1, 1, -wallDirX);
+                    //Aids in Double Jump
+                    jumpCount = 1;
+                }
+            }
+            //Adds another layer so the jump does not have to wait for the slide to kick in.
+            if((playerController.collisions.right || playerController.collisions.left) && velocity.y > 0)
+            {
+                //This used to be if(input.x == 0)
+                if (input.x != 0)
+                {
+                    velocity.x = -wallDirX * wallJump.x;
+                    velocity.y = wallJump.y;
+                    //This did not exist
+                    transform.localScale = new Vector3(1, 1, -wallDirX);
+                    //Aids in Double Jump
+                    jumpCount = 1;
                 }
             }
             if (playerController.collisions.below)
             {
+                //Aids in Double Jump
+                jumpCount = 1;
+
                 velocity.y = jumpVelocity;
+            }
+            //Aids in Double Jump
+            else if(jumpCount != 0 && !wallSliding && !playerController.collisions.right && !playerController.collisions.left)
+            {
+                velocity.y = jumpVelocity;
+                jumpCount--;
             }
         }
     }
@@ -141,12 +130,10 @@ public class Player : MonoBehaviour
         {
             input = new Vector2(-1, Input.GetAxisRaw("Vertical"));
         }
-        //input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (playerController.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
-        //playerController.AutoMove();
         playerController.Move(velocity * Time.deltaTime);
     }
 }
