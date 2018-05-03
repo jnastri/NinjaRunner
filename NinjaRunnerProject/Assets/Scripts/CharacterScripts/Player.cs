@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
                     velocity.x = -wallDirX * wallJump.x;
                     velocity.y = wallJump.y;
                     //This did not exist
-                    transform.localScale = new Vector3(1, 1, -wallDirX);
+                    transform.localScale = new Vector3(-wallDirX,1,1);
                     //Aids in Double Jump
                     jumpCount = 1;
                 }
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
                     velocity.x = -wallDirX * wallJump.x;
                     velocity.y = wallJump.y;
                     //This did not exist
-                    transform.localScale = new Vector3(1, 1, -wallDirX);
+                    transform.localScale = new Vector3(-wallDirX, 1, 1);
                     //Aids in Double Jump
                     jumpCount = 1;
                 }
@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
 
     void MovementController()
     {
-        if(transform.localScale.z == 1)
+        if(transform.localScale.x == 1)
         {
             input = new Vector2(1, Input.GetAxisRaw("Vertical"));
         }

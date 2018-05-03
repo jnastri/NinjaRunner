@@ -24,7 +24,7 @@ public class BurstToken : MonoBehaviour
         if(col.tag == "Player")
         {
             player = col.gameObject.GetComponent<Player>();
-            dirX = player.gameObject.transform.localScale.z;
+            dirX = player.gameObject.transform.localScale.x;
             player.velocity.x = dirX * player.moveSpeed * burstSpeed;
             Destroy(gameObject);
         }
