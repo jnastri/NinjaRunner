@@ -206,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 404471656}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 21.62, y: 7.02, z: 0}
+  m_LocalPosition: {x: 21.62, y: 6.78, z: 0}
   m_LocalScale: {x: 6.8252306, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -759,7 +759,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334758916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.72, y: 14.37, z: 0}
+  m_LocalPosition: {x: 27.72, y: 10.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63ee38ab79ec7147a1646c0eb0f5d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinWidth: 1
+  skinWidth: 0.015
   horizontalRayCount: 4
   verticalRayCount: 4
   collisionMask:
@@ -823,7 +823,11 @@ MonoBehaviour:
   moveSpeed: 5
   wallSlideSpeedMax: 3
   wallJump: {x: 0, y: 0}
-  goLeft: 0
+  goRight: 0
+  Goomba: 0
+  Lakitu: 0
+  Rabbit: 0
+  doesEnemyFloat: 0
 --- !u!1 &1627169652
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +921,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1627169652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.62, y: 7.55, z: 0}
+  m_LocalPosition: {x: 28.62, y: 0.95, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

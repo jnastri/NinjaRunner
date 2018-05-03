@@ -29,6 +29,7 @@ public class EnemyBase : MonoBehaviour {
 
     EnemyController controller;
 
+    [Header("Enemy Settings")]
     public bool goRight;
     public bool Goomba;
     public bool Lakitu;
@@ -42,34 +43,20 @@ public class EnemyBase : MonoBehaviour {
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         print("Gravity" + gravity + "Jump Velocity" + jumpVelocity);
+
+        
     }
 
     // Update is called once per frame
     void Update() {
 
+        ChooseEnemyType();
+       // MovementController();
+        
 
-        MovementController();
-        //JumpController();
-       /* if (controller.collisions.above || controller.collisions.below)
-        {
-            velocity.y = 0;
-        }
+    }
 
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        if(Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
-        {
-            velocity.y = jumpVelocity;
-        }
-
-        float targetVelocityX = velocity.x = input.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborn);
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-		*/
-	}
-
-    void MovementController()
+    /*void MovementController()
     {
         if (Goomba)
         {
@@ -92,12 +79,12 @@ public class EnemyBase : MonoBehaviour {
                     goRight = true;
                 }
             }
-        }
+        } 
 
         if (Lakitu)
         {
             float lakituSpeed = moveSpeed;
-            if(!Rabbit)
+            //if(!Rabbit)
             doesEnemyFloat = true;
 
             if(velocity.y == 0)
@@ -113,73 +100,110 @@ public class EnemyBase : MonoBehaviour {
             {
                 velocity.y = lakituSpeed;
             }
-        }
+        }  
         
-       /* if (transform.localScale.z == 1)
+        if (transform.localScale.z == 1)
         {
             input = new Vector2(1, Input.GetAxisRaw("Vertical"));
         }
         else
         {
             input = new Vector2(-1, Input.GetAxisRaw("Vertical"));
-        } */ 
+        } 
 
-        float targetVelocityX = input.x * moveSpeed;
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborn);
+      float targetVelocityX = input.x * moveSpeed;
+      velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborn);
+
+        
+    } */
+
+    void ChooseEnemyType()
+    {
+        if (Goomba)
+            GoombaType();
+
+
+         if (Lakitu)
+            LakituType();
+
+         if (Rabbit)
+            RabbitType();
 
         if (!doesEnemyFloat)
         {
             velocity.y += gravity * Time.deltaTime;
         }
-        
+
         controller.Move(velocity * Time.deltaTime);
+        float targetVelocityX = input.x * moveSpeed;
+        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborn);
+    }
+
+    void GoombaType()
+    {
+        if (goRight)
+        {
+            input = new Vector2(1, Input.GetAxisRaw("Vertical"));
+            if (controller.collisions.right)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                goRight = false;
+            }
+        }
+
+        else
+        {
+            input = new Vector2(-1, Input.GetAxisRaw("Vertical"));
+            if (controller.collisions.left)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                goRight = true;
+            }
+        }
+    }
+
+    void LakituType()
+    {
+        float lakituSpeed = moveSpeed;
+        doesEnemyFloat = true;
+
+        if (velocity.y == 0)
+        {
+            velocity.y = -lakituSpeed;
+        }
+
+        if (controller.collisions.above)
+        {
+            velocity.y = -lakituSpeed;
+        }
+        else if (controller.collisions.below)
+        {
+            velocity.y = lakituSpeed;
+        }
+    } 
+
+    void RabbitType()
+    {
+        float rabbitSpeed = moveSpeed;
+        doesEnemyFloat = false;
+        Goomba = true;
+
+        if (velocity.y == 0)
+        {
+            velocity.y = -rabbitSpeed;
+        }
+
+        if (controller.collisions.above)
+        {
+            velocity.y = -rabbitSpeed;
+        }
+        else if (controller.collisions.below)
+        {
+            velocity.y = rabbitSpeed;
+        }
     }
 
 
-   /* void JumpController()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (wallSliding)
-            {
-                //This used to be if(input.x == 0)
-                if (input.x != 0)
-                {
-                    velocity.x = -wallDirX * wallJump.x;
-                    velocity.y = wallJump.y;
-                    //This did not exist
-                    transform.localScale = new Vector3(1, 1, -wallDirX);
-                    //Aids in Double Jump
-                    jumpCount = 1;
-                }
-            }
-            //Adds another layer so the jump does not have to wait for the slide to kick in.
-            if ((controller.collisions.right || controller.collisions.left) && velocity.y > 0)
-            {
-                //This used to be if(input.x == 0)
-                if (input.x != 0)
-                {
-                    velocity.x = -wallDirX * wallJump.x;
-                    velocity.y = wallJump.y;
-                    //This did not exist
-                    transform.localScale = new Vector3(1, 1, -wallDirX);
-                    //Aids in Double Jump
-                    jumpCount = 1;
-                }
-            }
-            if (controller.collisions.below)
-            {
-                //Aids in Double Jump
-                jumpCount = 1;
 
-                velocity.y = jumpVelocity;
-            }
-            //Aids in Double Jump
-            else if (jumpCount != 0 && !wallSliding && !controller.collisions.right && !controller.collisions.left)
-            {
-                velocity.y = jumpVelocity;
-                jumpCount--;
-            }
-        } 
-    } */
+ 
 }
