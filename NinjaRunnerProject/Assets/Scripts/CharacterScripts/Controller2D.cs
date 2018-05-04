@@ -151,7 +151,7 @@ public class Controller2D : MonoBehaviour
     #endregion
 
     #region Raycast
-    void UpdateRaycastOrigins()
+    public void UpdateRaycastOrigins()
     {
         Bounds bounds = playerCol.bounds;
         bounds.Expand(skinWidth * -2);
@@ -162,7 +162,7 @@ public class Controller2D : MonoBehaviour
         raycastOrigins.topRight = new Vector2(bounds.max.x, bounds.max.y);
     }
 
-    void CalculateRaySpacing()
+    public void CalculateRaySpacing()
     {
         Bounds bounds = playerCol.bounds;
         bounds.Expand(skinWidth * -2);
