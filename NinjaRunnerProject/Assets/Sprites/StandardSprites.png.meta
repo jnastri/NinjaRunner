@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: a08a718fafdb43745b2a4dd00f0cb652
-timeCreated: 1525112288
+guid: e0e9ddf904b245c479780895da984b2f
+timeCreated: 1525449476
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BasicShapes
-    21300002: BasicShapes1
-    21300004: BasicShapes2
-    21300006: BasicShapes3
-    21300008: BasicShapes4
-    21300010: BasicShapes5
-    21300012: Enemy1
-    21300014: Enemy2
-    21300016: Enemy3
-    21300018: SmokeScreen
-    21300020: Scroll
-    21300022: Turret
-    21300024: CubeNinja_Fred
-    21300026: Ground
-    21300028: StonePlatform
-    21300030: WoodPlatform
+    21300000: StandardSprites
+    21300002: CubeNinja_Fred
+    21300004: Ground
+    21300006: Pillar
+    21300008: Scroll
+    21300010: SmokeScreen
+    21300012: Stone Lantern
+    21300014: StonePlatform
+    21300016: Turret
+    21300018: WoodPlatform
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -58,7 +52,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -86,113 +80,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicShapes1
+      name: CubeNinja_Fred
       rect:
         serializedVersion: 2
         x: 1
-        y: 333
-        width: 156
-        height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 723
+        width: 314
+        height: 314
+      alignment: 9
+      pivot: {x: 0.49840763, y: 0.49840763}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: BasicShapes2
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 713
-        width: 165
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: BasicShapes3
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 868
-        width: 165
-        height: 155
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: BasicShapes4
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 341
-        width: 165
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: BasicShapes5
+      name: Ground
       rect:
         serializedVersion: 2
         x: 1
-        y: 149
-        width: 146
-        height: 182
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 1811
+        width: 847
+        height: 236
+      alignment: 9
+      pivot: {x: 0.51357734, y: 0.3220339}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: Enemy1
+      name: Pillar
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1388
+        width: 90
+        height: 659
+      alignment: 9
+      pivot: {x: 0.57222223, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Scroll
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1355
+        width: 202
+        height: 289
+      alignment: 9
+      pivot: {x: 0.50247526, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SmokeScreen
       rect:
         serializedVersion: 2
         x: 1
-        y: 720
-        width: 312
-        height: 303
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: Enemy2
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 496
-        width: 242
-        height: 215
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: Enemy3
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 484
-        width: 266
+        y: 1039
+        width: 321
         height: 234
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49532712, y: 0.50427353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Stone Lantern
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 985
+        width: 363
+        height: 368
+      alignment: 9
+      pivot: {x: 0.49311295, y: 0.48641303}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: StonePlatform
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1646
+        width: 690
+        height: 163
+      alignment: 9
+      pivot: {x: 0.5014493, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Turret
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1275
+        width: 428
+        height: 234
+      alignment: 9
+      pivot: {x: 0.49883178, y: 0.49358973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: WoodPlatform
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1511
+        width: 534
+        height: 133
+      alignment: 9
+      pivot: {x: 0.50187266, y: 0.49624062}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

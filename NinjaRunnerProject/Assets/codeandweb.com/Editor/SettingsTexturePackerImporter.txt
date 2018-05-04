@@ -2,11 +2,20 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
-- Assets/Sprites/BasicShapes.tpsheet
+- Assets/Sprites/Misc/BasicShapes.tpsheet
+- Assets/Sprites/Misc/IceSprites.tpsheet
+- Assets/Sprites/Misc/InvertedSprites.tpsheet
+- Assets/Sprites/Misc/StandardSprites.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
-- Assets/Sprites/BasicShapes.png
+- Assets/Sprites/Misc/BasicShapes.png
+- Assets/Sprites/Misc/IceSprites.png
+- Assets/Sprites/Misc/InvertedSprites.png
+- Assets/Sprites/Misc/StandardSprites.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
 - 
 enableDebugOutput: 0

@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: a08a718fafdb43745b2a4dd00f0cb652
-timeCreated: 1525112288
+guid: 32aaad12df98a2a46a89d7008a95e893
+timeCreated: 1525449475
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BasicShapes
-    21300002: BasicShapes1
-    21300004: BasicShapes2
-    21300006: BasicShapes3
-    21300008: BasicShapes4
-    21300010: BasicShapes5
-    21300012: Enemy1
-    21300014: Enemy2
-    21300016: Enemy3
-    21300018: SmokeScreen
-    21300020: Scroll
-    21300022: Turret
-    21300024: CubeNinja_Fred
-    21300026: Ground
-    21300028: StonePlatform
-    21300030: WoodPlatform
+    21300000: InvertedSprites
+    21300002: InvertedCubeNinja_Fred
+    21300004: NegativeGround
+    21300006: NegativePillar
+    21300008: NegativeStone Lantern
+    21300010: NegativeStonePlatform
+    21300012: NegativeWoodPlatform
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -58,7 +49,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -86,113 +77,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicShapes1
+      name: InvertedCubeNinja_Fred
       rect:
         serializedVersion: 2
         x: 1
-        y: 333
-        width: 156
-        height: 149
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 48
+        width: 314
+        height: 314
+      alignment: 9
+      pivot: {x: 0.49840763, y: 0.49840763}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: BasicShapes2
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 713
-        width: 165
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: BasicShapes3
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 868
-        width: 165
-        height: 155
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: BasicShapes4
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 341
-        width: 165
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: BasicShapes5
+      name: NegativeGround
       rect:
         serializedVersion: 2
         x: 1
-        y: 149
-        width: 146
-        height: 182
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 787
+        width: 847
+        height: 236
+      alignment: 9
+      pivot: {x: 0.51357734, y: 0.3220339}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: Enemy1
+      name: NegativePillar
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 364
+        width: 90
+        height: 659
+      alignment: 9
+      pivot: {x: 0.57222223, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: NegativeStone Lantern
       rect:
         serializedVersion: 2
         x: 1
-        y: 720
-        width: 312
-        height: 303
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 417
+        width: 363
+        height: 368
+      alignment: 9
+      pivot: {x: 0.49311295, y: 0.48641303}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: Enemy2
+      name: NegativeStonePlatform
       rect:
         serializedVersion: 2
-        x: 269
-        y: 496
-        width: 242
-        height: 215
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 317
+        y: 199
+        width: 690
+        height: 163
+      alignment: 9
+      pivot: {x: 0.5014493, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: Enemy3
+      name: NegativeWoodPlatform
       rect:
         serializedVersion: 2
-        x: 1
-        y: 484
-        width: 266
-        height: 234
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 317
+        y: 64
+        width: 534
+        height: 133
+      alignment: 9
+      pivot: {x: 0.50187266, y: 0.49624062}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

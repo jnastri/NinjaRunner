@@ -1,0 +1,15 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:4439a01cc31fc05c5dbdb7ca4170102c:1d6fa55d0acae47bd4f0abd873fa0439:c1797bebc55ac344fafe3966d591248a$
+#
+:format=40300
+:texture=IceSprites.png
+:size=1024x256
+:pivotpoints=enabled
+:borders=disabled
+
+Ice Ground;1;20;845;235; 0.5035502958579882;0.4936170212765958; 0;0;0;0; 4;845;0;0;0;0;235;845;235; 2;1;2;3;0;1;3
