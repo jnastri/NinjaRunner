@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C) && playerController.collisions.below)
         {
-            sliding = true;
+            sliding = !sliding;
 
             if (slideTimer <= slideMaximum && sliding)
             {
@@ -189,11 +189,24 @@ public class Player : MonoBehaviour
             //sliding = false;
                 
         }
-        if (Input.GetKeyUp(KeyCode.C) || !sliding)
+        if (!sliding)
         {
             sliding = false;
             slideTimer = 0;
-            transform.localScale = new Vector3(1, 1, 1);
+            
+            //Need to figure out how to stop the player from expanding if they are underneath an object
+            if (!playerController.collisions.above)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                playerController.CalculateRaySpacing();
+                playerController.UpdateRaycastOrigins();
+            }
+            //code not working atm 
+            else
+            {
+                transform.localScale = new Vector3(1, newSize, 1);
+            }
+            
         }
     }
 }
