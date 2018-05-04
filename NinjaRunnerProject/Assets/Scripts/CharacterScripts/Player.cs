@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Jump Settings")]
     public float jumpHeight = 4;
+    public float slideJumpVelocity;
     public float timeToJumpApex = .4f;
     public float accelerationTimeAirborne = .2f;
     public float accelerationTimeGrounded = .1f;
@@ -17,6 +18,14 @@ public class Player : MonoBehaviour
     [Header("Wall Settings")]
     public float wallSlideSpeedMax = 3;
     public Vector2 wallJump;
+
+    [Header("Slide Settings")]
+    public float squishInt;
+    public bool sliding;
+    public bool detectSlide;
+    [SerializeField]
+    private float slideTimer;
+    public float slideMaximum;
 
 
     [HideInInspector]
@@ -51,6 +60,7 @@ public class Player : MonoBehaviour
         Obstacle_WallController();
         JumpController();
         MovementController();
+        SlideController();
     }
 
     void Obstacle_WallController()
@@ -90,6 +100,9 @@ public class Player : MonoBehaviour
                     jumpCount = 1;
                 }
             }
+
+           
+
             //Adds another layer so the jump does not have to wait for the slide to kick in.
             if((playerController.collisions.right || playerController.collisions.left) && velocity.y > 0)
             {
@@ -109,7 +122,15 @@ public class Player : MonoBehaviour
                 //Aids in Double Jump
                 jumpCount = 1;
 
-                velocity.y = jumpVelocity;
+                if (sliding)
+                {
+                    velocity.y = slideJumpVelocity * 10;
+                }
+                if (!sliding)
+                {
+                    velocity.y = jumpVelocity;
+                }
+                
             }
             //Aids in Double Jump
             else if(jumpCount != 0 && !wallSliding && !playerController.collisions.right && !playerController.collisions.left)
@@ -135,5 +156,44 @@ public class Player : MonoBehaviour
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (playerController.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
         playerController.Move(velocity * Time.deltaTime);
+    }
+
+    void SlideController()
+    {
+        float newSize = .4f;
+        // float distanceToMove = .7f;
+        if (sliding)
+        {
+            slideTimer += Time.deltaTime;
+        }
+        if (slideTimer >= slideMaximum)
+        {
+            sliding = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) && playerController.collisions.below)
+        {
+            sliding = true;
+
+            if (slideTimer <= slideMaximum && sliding)
+            {
+                transform.localScale = new Vector3(1, newSize, 1);
+                playerController.CalculateRaySpacing();
+                playerController.UpdateRaycastOrigins();
+            }
+            if(slideTimer >= slideMaximum)
+            {
+                sliding = false;
+            }
+            
+            //sliding = false;
+                
+        }
+        if (Input.GetKeyUp(KeyCode.C) || !sliding)
+        {
+            sliding = false;
+            slideTimer = 0;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
