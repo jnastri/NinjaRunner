@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
 
             if (slideTimer <= slideMaximum && sliding)
             {
-                transform.localScale = new Vector3(1, newSize, 1);
+                transform.localScale = new Vector3(transform.localScale.x, newSize, transform.localScale.z);
                 playerController.CalculateRaySpacing();
                 playerController.UpdateRaycastOrigins();
             }
@@ -197,14 +197,14 @@ public class Player : MonoBehaviour
             //Need to figure out how to stop the player from expanding if they are underneath an object
             if (!playerController.collisions.above)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
                 playerController.CalculateRaySpacing();
                 playerController.UpdateRaycastOrigins();
             }
             //code not working atm 
             else
             {
-                transform.localScale = new Vector3(1, newSize, 1);
+               // transform.localScale = new Vector3(1, newSize, 1);
             }
             
         }
