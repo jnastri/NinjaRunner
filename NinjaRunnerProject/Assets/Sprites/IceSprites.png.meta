@@ -6,6 +6,12 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: IceSprites
     21300002: Ice Ground
+    21300004: Ice Ground Filler
+    21300006: Ice Stone Lantern
+    21300008: IcePillar
+    21300010: IceStonePlatform
+    21300012: IceWoodPlatform
+    21300014: SantaCubeNinja_Fred
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -72,15 +78,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Ice Ground Filler
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1812
+        width: 845
+        height: 235
+      alignment: 9
+      pivot: {x: 0.5071006, y: 0.48510638}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Ice Ground
       rect:
         serializedVersion: 2
         x: 1
-        y: 20
+        y: 1575
         width: 845
         height: 235
       alignment: 9
       pivot: {x: 0.5035503, y: 0.49361703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Ice Stone Lantern
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 909
+        width: 367
+        height: 366
+      alignment: 9
+      pivot: {x: 0.49863762, y: 0.48907104}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: IcePillar
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 1389
+        width: 80
+        height: 658
+      alignment: 9
+      pivot: {x: 0.50625, y: 0.49924013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: IceStonePlatform
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1410
+        width: 690
+        height: 163
+      alignment: 9
+      pivot: {x: 0.5014493, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: IceWoodPlatform
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1277
+        width: 539
+        height: 131
+      alignment: 9
+      pivot: {x: 0.49721706, y: 0.5038168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SantaCubeNinja_Fred
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 909
+        width: 375
+        height: 478
+      alignment: 9
+      pivot: {x: 0.552, y: 0.5585774}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

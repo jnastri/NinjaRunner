@@ -14,6 +14,10 @@ TextureImporter:
     21300014: StonePlatform
     21300016: Turret
     21300018: WoodPlatform
+    21300020: FlyingEnemy
+    21300022: GroundFiller
+    21300024: GumbaEnemy
+    21300026: RabbitEnemy
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -83,8 +87,8 @@ TextureImporter:
       name: CubeNinja_Fred
       rect:
         serializedVersion: 2
-        x: 1
-        y: 723
+        x: 1446
+        y: 339
         width: 314
         height: 314
       alignment: 9
@@ -94,11 +98,25 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: FlyingEnemy
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 19
+        width: 546
+        height: 529
+      alignment: 9
+      pivot: {x: 0.5604396, y: 0.55765593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Ground
       rect:
         serializedVersion: 2
         x: 1
-        y: 1811
+        y: 787
         width: 847
         height: 236
       alignment: 9
@@ -108,11 +126,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: GroundFiller
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 550
+        width: 846
+        height: 235
+      alignment: 9
+      pivot: {x: 0.5041371, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: GumbaEnemy
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 289
+        width: 437
+        height: 434
+      alignment: 9
+      pivot: {x: 0.48970252, y: 0.5322581}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Pillar
       rect:
         serializedVersion: 2
-        x: 850
-        y: 1388
+        x: 1907
+        y: 364
         width: 90
         height: 659
       alignment: 9
@@ -122,11 +168,25 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
+      name: RabbitEnemy
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 63
+        width: 456
+        height: 485
+      alignment: 9
+      pivot: {x: 0.61622804, y: 0.72783506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
       name: Scroll
       rect:
         serializedVersion: 2
-        x: 537
-        y: 1355
+        x: 1769
+        y: 73
         width: 202
         height: 289
       alignment: 9
@@ -139,8 +199,8 @@ TextureImporter:
       name: SmokeScreen
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1039
+        x: 1446
+        y: 103
         width: 321
         height: 234
       alignment: 9
@@ -153,8 +213,8 @@ TextureImporter:
       name: Stone Lantern
       rect:
         serializedVersion: 2
-        x: 431
-        y: 985
+        x: 1542
+        y: 655
         width: 363
         height: 368
       alignment: 9
@@ -167,8 +227,8 @@ TextureImporter:
       name: StonePlatform
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1646
+        x: 850
+        y: 860
         width: 690
         height: 163
       alignment: 9
@@ -181,8 +241,8 @@ TextureImporter:
       name: Turret
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1275
+        x: 1007
+        y: 53
         width: 428
         height: 234
       alignment: 9
@@ -195,8 +255,8 @@ TextureImporter:
       name: WoodPlatform
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1511
+        x: 850
+        y: 725
         width: 534
         height: 133
       alignment: 9
