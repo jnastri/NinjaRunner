@@ -6,14 +6,17 @@ tpsheetFileNames:
 - Assets/Sprites/Misc/IceSprites.tpsheet
 - Assets/Sprites/Misc/InvertedSprites.tpsheet
 - Assets/Sprites/Misc/StandardSprites.tpsheet
+- Assets/Sprites/Misc/SteampunkSprites.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Sprites/Misc/BasicShapes.png
 - Assets/Sprites/Misc/IceSprites.png
 - Assets/Sprites/Misc/InvertedSprites.png
 - Assets/Sprites/Misc/StandardSprites.png
+- Assets/Sprites/Misc/SteampunkSprites.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 - 

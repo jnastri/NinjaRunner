@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 32aaad12df98a2a46a89d7008a95e893
-timeCreated: 1525449475
+guid: 2f97f8c2e6079e446bfc92a6398cd022
+timeCreated: 1525721396
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InvertedSprites
-    21300002: InvertedCubeNinja_Fred
-    21300004: NegativeGround
-    21300006: NegativePillar
-    21300008: NegativeStone Lantern
-    21300010: NegativeStonePlatform
-    21300012: NegativeWoodPlatform
-    21300014: NegativeGroundFiller
+    21300000: SteampunkSprites
+    21300002: BeamPlatform
+    21300004: CubeNinja_Steampunk
+    21300006: Steampunk Pillar_Platform
+    21300008: Steampunk_Fire_Hydrant
+    21300010: SteampunkPillar
+    21300012: StoneGround
+    21300014: StoneGroundFiller
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -78,99 +78,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InvertedCubeNinja_Fred
+      name: BeamPlatform
       rect:
         serializedVersion: 2
         x: 1
-        y: 958
-        width: 314
-        height: 314
+        y: 921
+        width: 628
+        height: 130
       alignment: 9
-      pivot: {x: 0.49840763, y: 0.49840763}
+      pivot: {x: 0.49522293, y: 0.52692306}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: NegativeGround
+      name: CubeNinja_Steampunk
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1578
+        width: 304
+        height: 469
+      alignment: 9
+      pivot: {x: 0.43092105, y: 0.49573562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Steampunk Pillar_Platform
       rect:
         serializedVersion: 2
         x: 1
-        y: 1811
-        width: 847
-        height: 236
+        y: 1053
+        width: 657
+        height: 622
       alignment: 9
-      pivot: {x: 0.51357734, y: 0.3220339}
+      pivot: {x: 0.48554033, y: 0.56913185}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: NegativeGroundFiller
+      name: Steampunk_Fire_Hydrant
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 577
+        width: 212
+        height: 365
+      alignment: 9
+      pivot: {x: 0.49056605, y: 0.48767123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: SteampunkPillar
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 944
+        width: 278
+        height: 632
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5601266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: StoneGround
       rect:
         serializedVersion: 2
         x: 1
-        y: 1574
-        width: 845
-        height: 235
+        y: 1843
+        width: 691
+        height: 204
       alignment: 9
-      pivot: {x: 0.5005917, y: 0.52340424}
+      pivot: {x: 0.49782923, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: NegativePillar
-      rect:
-        serializedVersion: 2
-        x: 850
-        y: 1388
-        width: 90
-        height: 659
-      alignment: 9
-      pivot: {x: 0.57222223, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: NegativeStone Lantern
-      rect:
-        serializedVersion: 2
-        x: 537
-        y: 1018
-        width: 363
-        height: 368
-      alignment: 9
-      pivot: {x: 0.49311295, y: 0.48641303}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: NegativeStonePlatform
+      name: StoneGroundFiller
       rect:
         serializedVersion: 2
         x: 1
-        y: 1409
-        width: 690
-        height: 163
+        y: 1677
+        width: 691
+        height: 164
       alignment: 9
-      pivot: {x: 0.5014493, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: NegativeWoodPlatform
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1274
-        width: 534
-        height: 133
-      alignment: 9
-      pivot: {x: 0.50187266, y: 0.49624062}
+      pivot: {x: 0.49638206, y: 0.49695122}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
