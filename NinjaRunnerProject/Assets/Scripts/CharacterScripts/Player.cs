@@ -20,12 +20,12 @@ public class Player : MonoBehaviour
     public Vector2 wallJump;
 
     [Header("Slide Settings")]
-    public float squishInt;
-    public bool sliding;
-    public bool detectSlide;
-    [SerializeField]
-    private float slideTimer;
-    public float slideMaximum;
+    public float slideTime;
+    public float slideJumpBoost = 2;
+    private float slideStopWatch = 0;
+    [HideInInspector]
+    public bool isScalingDown;
+    Vector2 originalSize;
 
 
     [HideInInspector]
@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
     void Start ()
     {
         playerController = GetComponent<Controller2D>();
+        originalSize = transform.localScale;
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -60,7 +61,10 @@ public class Player : MonoBehaviour
         Obstacle_WallController();
         JumpController();
         MovementController();
-        SlideController();
+        if (Input.GetKeyDown(KeyCode.C) || isScalingDown)
+        {
+            SlideController();
+        }
     }
 
     void Obstacle_WallController()
@@ -122,11 +126,13 @@ public class Player : MonoBehaviour
                 //Aids in Double Jump
                 jumpCount = 1;
 
-                if (sliding)
+                if ((isScalingDown || transform.localScale.y != originalSize.y) && !playerController.SlidingRayCast(isScalingDown))
                 {
-                    velocity.y = slideJumpVelocity * 10;
+                    velocity.y = slideJumpVelocity * 5 * slideJumpBoost;
+                    isScalingDown = false;
+                    Resize();
                 }
-                if (!sliding)
+                else
                 {
                     velocity.y = jumpVelocity;
                 }
@@ -159,54 +165,51 @@ public class Player : MonoBehaviour
     }
 
     void SlideController()
-    {
-        float newSize = .4f;
-        // float distanceToMove = .7f;
-        if (sliding)
+    { 
+        bool isSmaller = isScalingDown;
+        
+        if (!isSmaller)
         {
-            slideTimer += Time.deltaTime;
-        }
-        if (slideTimer >= slideMaximum)
-        {
-            sliding = false;
-        }
+            slideStopWatch = 0;
+            isScalingDown = true;
 
-        if (Input.GetKeyDown(KeyCode.C) && playerController.collisions.below)
-        {
-            sliding = !sliding;
-
-            if (slideTimer <= slideMaximum && sliding)
-            {
-                transform.localScale = new Vector3(transform.localScale.x, newSize, transform.localScale.z);
-                playerController.CalculateRaySpacing();
-                playerController.UpdateRaycastOrigins();
-            }
-            if(slideTimer >= slideMaximum)
-            {
-                sliding = false;
-            }
-            
-            //sliding = false;
-                
+            Resize();
         }
-        if (!sliding)
+        else if(isSmaller)
         {
-            sliding = false;
-            slideTimer = 0;
             
-            //Need to figure out how to stop the player from expanding if they are underneath an object
-            if (!playerController.collisions.above)
+            slideStopWatch += Time.deltaTime;
+            playerController.SlidingRayCast(isSmaller);
+
+            if(slideStopWatch > slideTime && playerController.SlidingRayCast(isSmaller) == false)
             {
-                transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
-                playerController.CalculateRaySpacing();
-                playerController.UpdateRaycastOrigins();
+                isSmaller = false;
+                Invoke("Resize", .25f);
             }
-            //code not working atm 
             else
             {
-               // transform.localScale = new Vector3(1, newSize, 1);
+                isSmaller = true;
             }
-            
+
+            isScalingDown = isSmaller;
         }
+    }
+
+    void Resize()
+    {
+        float resizeValue = .75f;
+        Vector2 resizeVector = new Vector2(transform.localScale.x, transform.localScale.y - resizeValue);
+
+        if (isScalingDown)
+        {
+            transform.localScale = resizeVector;
+        }
+        else
+        {
+            transform.localScale = originalSize;
+        }
+
+        playerController.CalculateRaySpacing();
+        playerController.UpdateRaycastOrigins();
     }
 }

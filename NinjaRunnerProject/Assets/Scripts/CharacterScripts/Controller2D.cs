@@ -44,7 +44,7 @@ public class Controller2D : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
 
     }
 
@@ -151,6 +151,31 @@ public class Controller2D : MonoBehaviour
     #endregion
 
     #region Raycast
+    public bool SlidingRayCast(bool isSliding)
+    {
+        float rayLength = 1f;
+        for (int i = 0; i < vertRayCount; i++)
+        {
+            Vector2 rayOrigin = raycastOrigins.topLeft;
+            rayOrigin += Vector2.right * (vertRaySpacing * i + .25f);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, colMask);
+
+            Debug.DrawRay(rayOrigin, Vector2.up * rayLength, Color.blue);
+
+            if (hit)
+            {
+                //rayLength = hit.distance;
+                isSliding = true;
+            }
+            else
+            {
+                isSliding = false;
+            }
+        }
+
+        return isSliding;
+    }
+
     public void UpdateRaycastOrigins()
     {
         Bounds bounds = playerCol.bounds;
@@ -191,6 +216,7 @@ public class Controller2D : MonoBehaviour
 
         public bool climbingSlope;
         public bool descendingSlope;
+        public bool sliding;
         public float slopeAngle, slopeAngleOld;
         public Vector3 velocityOld;
         public int faceDirection;
