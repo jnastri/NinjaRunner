@@ -170,31 +170,35 @@ public class Player : MonoBehaviour
     void SlideController()
     { 
         bool isSmaller = isScalingDown;
-        
-        if (!isSmaller)
+
+        //Remove this statement if you want the character to be able to shrink in mid air.
+        if (playerController.collisions.below)
         {
-            slideStopWatch = 0;
-            isScalingDown = true;
-
-            Resize();
-        }
-        else if(isSmaller)
-        {
-            
-            slideStopWatch += Time.deltaTime;
-            playerController.SlidingRayCast(isSmaller);
-
-            if(slideStopWatch > slideTime && playerController.SlidingRayCast(isSmaller) == false)
+            if (!isSmaller)
             {
-                isSmaller = false;
-                Invoke("Resize", .25f);
-            }
-            else
-            {
-                isSmaller = true;
-            }
+                slideStopWatch = 0;
+                isScalingDown = true;
 
-            isScalingDown = isSmaller;
+                Resize();
+            }
+            else if (isSmaller)
+            {
+
+                slideStopWatch += Time.deltaTime;
+                playerController.SlidingRayCast(isSmaller);
+
+                if (slideStopWatch > slideTime && playerController.SlidingRayCast(isSmaller) == false)
+                {
+                    isSmaller = false;
+                    Invoke("Resize", .25f);
+                }
+                else
+                {
+                    isSmaller = true;
+                }
+
+                isScalingDown = isSmaller;
+            }
         }
     }
 
