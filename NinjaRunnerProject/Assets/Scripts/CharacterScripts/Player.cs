@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     public bool isScalingDown;
     Vector2 originalSize;
 
-
     [HideInInspector]
     public Vector3 velocity;
     float velocityXSmoothing;
@@ -58,9 +57,13 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+
         Obstacle_WallController();
+
         JumpController();
+
         MovementController();
+
         if (Input.GetKeyDown(KeyCode.C) || isScalingDown)
         {
             SlideController();
@@ -89,6 +92,7 @@ public class Player : MonoBehaviour
 
     void JumpController()
     {
+
         if (Input.GetButtonDown("Jump"))
         {
             if (wallSliding)
@@ -105,10 +109,8 @@ public class Player : MonoBehaviour
                 }
             }
 
-           
-
             //Adds another layer so the jump does not have to wait for the slide to kick in.
-            if((playerController.collisions.right || playerController.collisions.left) && velocity.y > 0)
+            if ((playerController.collisions.right || playerController.collisions.left) && velocity.y > 0)
             {
                 //This used to be if(input.x == 0)
                 if (input.x != 0)
@@ -136,15 +138,16 @@ public class Player : MonoBehaviour
                 {
                     velocity.y = jumpVelocity;
                 }
-                
+
             }
             //Aids in Double Jump
-            else if(jumpCount != 0 && !wallSliding && !playerController.collisions.right && !playerController.collisions.left)
+            else if (jumpCount != 0 && !wallSliding && !playerController.collisions.right && !playerController.collisions.left)
             {
                 velocity.y = jumpVelocity;
                 jumpCount--;
             }
         }
+
     }
 
     void MovementController()
@@ -212,4 +215,6 @@ public class Player : MonoBehaviour
         playerController.CalculateRaySpacing();
         playerController.UpdateRaycastOrigins();
     }
+
+
 }
