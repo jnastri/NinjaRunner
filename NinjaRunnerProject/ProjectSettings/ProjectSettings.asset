@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: e52f1245f6bca0e4da2732948e0cfcb2
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
