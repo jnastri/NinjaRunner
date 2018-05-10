@@ -10,8 +10,14 @@ public class TouchInput : MonoBehaviour {
     private GameObject[] touchesOld;
     private RaycastHit hit;
 
-	// Update is called once per frame
-	void Update () {
+
+
+    private void Start()
+    {
+
+    }
+    // Update is called once per frame
+    void Update () {
 
 #if UNITY_EDITOR
         if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0))
@@ -73,6 +79,7 @@ public class TouchInput : MonoBehaviour {
 
                     if (touch.phase == TouchPhase.Began)
                     {
+
                         recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
                     }
                     if (touch.phase == TouchPhase.Ended)

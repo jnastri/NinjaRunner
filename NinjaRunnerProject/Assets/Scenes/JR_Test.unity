@@ -863,6 +863,7 @@ MonoBehaviour:
   slideJumpBoost: 3
   isScalingDown: 0
   velocity: {x: 0, y: 0, z: 0}
+  jumpBool: 0
 --- !u!4 &263641757
 Transform:
   m_ObjectHideFlags: 0
@@ -1986,7 +1987,7 @@ GameObject:
   - component: {fileID: 504850307}
   - component: {fileID: 504850306}
   m_Layer: 10
-  m_Name: Cube
+  m_Name: TouchInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2005,13 +2006,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  playerObject: {fileID: 263641753}
 --- !u!23 &504850307
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504850305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2064,12 +2066,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 504850305}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.88, y: 9.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 9.09, z: 10}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_Father: {fileID: 1031908648}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509835116
 GameObject:
@@ -3607,7 +3609,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.4, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 504850310}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3625,6 +3628,7 @@ MonoBehaviour:
   touchInputMask:
     serializedVersion: 2
     m_Bits: 1024
+  playerObject: {fileID: 263641753}
 --- !u!1 &1054718287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5940,7 +5944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1958017943
 GameObject:

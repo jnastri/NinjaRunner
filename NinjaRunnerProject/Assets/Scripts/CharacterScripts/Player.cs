@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     //Is the player sliding on a wall?
     bool wallSliding = false;
 
+    public bool jumpBool;
+
     Controller2D playerController;
     // Use this for initialization
     void Start ()
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
     void JumpController()
     {
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || jumpBool)
         {
             if (wallSliding)
             {
@@ -146,6 +148,7 @@ public class Player : MonoBehaviour
                 velocity.y = jumpVelocity;
                 jumpCount--;
             }
+            jumpBool = false;
         }
 
     }
