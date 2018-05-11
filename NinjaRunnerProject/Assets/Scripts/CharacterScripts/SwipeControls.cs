@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwipeControls : MonoBehaviour {
 
@@ -15,10 +16,34 @@ public class SwipeControls : MonoBehaviour {
     Player playerClass;
     public GameObject playerObject;
 
+    PanelScrolling panelScrolling;
+
+    [SerializeField]
+    private Scene activeScene;
+    private string sceneName;
+
+    
+
 
     private void Start()
     {
-        playerClass = playerObject.GetComponent<Player>();
+        
+        activeScene = SceneManager.GetActiveScene();
+        sceneName = activeScene.name;
+
+        if(sceneName == "JR_Test")
+        {
+            playerClass = playerObject.GetComponent<Player>();
+            panelScrolling = null;
+        }
+
+        else if (sceneName == "MainMenu")
+        {
+            playerClass = null;
+            playerObject = null;
+            panelScrolling = GetComponent<PanelScrolling>();
+        }
+        
     }
     void Update()
     {
@@ -58,6 +83,8 @@ public class SwipeControls : MonoBehaviour {
                         //Jump ();
 
                         else if (swipeValue < 0) {
+
+
                             playerClass.SlideController();
                         }//down swipe
                         
@@ -70,6 +97,7 @@ public class SwipeControls : MonoBehaviour {
 
                     else if (swipeDistVertical < minSwipeDistY)
                     {
+
                         playerClass.jumpBool = true;
                     }
 
@@ -81,13 +109,19 @@ public class SwipeControls : MonoBehaviour {
 
                         float swipeValue = Mathf.Sign(touch.position.x - startPos.x);
 
-                        if (swipeValue > 0) { }//right swipe
+                        if (swipeValue > 0) {
+                            panelScrolling.touchRight = true;
+                        }
+                            //right swipe
+                        
 
                         //MoveRight ();
 
-                        else if (swipeValue < 0) { }//left swipe
-
-                            //MoveLeft ();
+                        else if (swipeValue < 0) {
+                            panelScrolling.touchLeft = true;
+                        }//left swipe
+                        
+                        //MoveLeft ();
 
                     }
                     break;

@@ -11,6 +11,8 @@ public class PanelScrolling : MonoBehaviour
     int rotationCount = 0;
     Transform newMenuLocation;
     Quaternion ogRot;
+    public bool touchLeft;
+    public bool touchRight;
 	// Use this for initialization
 	void Start ()
     {
@@ -22,7 +24,7 @@ public class PanelScrolling : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || touchLeft)
         {
             if (!Advertisement.isShowing)
             {
@@ -30,7 +32,7 @@ public class PanelScrolling : MonoBehaviour
                 DeterminehetherRotatingLeft();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || touchRight)
         {
             if (!Advertisement.isShowing)
             {
@@ -39,6 +41,8 @@ public class PanelScrolling : MonoBehaviour
             }
         }
         RotateCam();
+        touchLeft = false;
+        touchRight = false;
     }
 
     void DeterminehetherRotatingRight()
