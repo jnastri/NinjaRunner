@@ -178,17 +178,20 @@ public class IAPManager : MonoBehaviour, IStoreListener
         // A consumable product has been purchased by this user.
         if (String.Equals(args.purchasedProduct.definition.id, productScrolls25, StringComparison.Ordinal))
         {
-            Debug.Log("You Just Bought 25 Scrolls");
+            GameManagerScript.instance.currentScrolls += 25;
+            print(GameManagerScript.instance.currentScrolls);
         }
         // Or ... a non-consumable product has been purchased by this user.
         else if (String.Equals(args.purchasedProduct.definition.id, productScrolls50, StringComparison.Ordinal))
         {
-            Debug.Log("You Just Bought 25 Scrolls");
+            GameManagerScript.instance.currentScrolls += 50;
+            print(GameManagerScript.instance.currentScrolls);
         }
         // Or ... a subscription product has been purchased by this user.
         else if (String.Equals(args.purchasedProduct.definition.id, noAds, StringComparison.Ordinal))
         {
-            Debug.Log("No more Ads Baby");
+            AdManager.instance.paidNoAds = true;
+            print(AdManager.instance.paidNoAds);
         }
         // Or ... an unknown product has been purchased by this user. Fill in additional products here....
         else

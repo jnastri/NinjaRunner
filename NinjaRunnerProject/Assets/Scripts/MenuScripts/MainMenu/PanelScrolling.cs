@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
 public class PanelScrolling : MonoBehaviour
 {
@@ -23,13 +24,19 @@ public class PanelScrolling : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            print("Left " + rotationCount);
-            DeterminehetherRotatingLeft();
+            if (!Advertisement.isShowing)
+            {
+                print("Left " + rotationCount);
+                DeterminehetherRotatingLeft();
+            }
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            print("Right " + rotationCount);
-            DeterminehetherRotatingRight();
+            if (!Advertisement.isShowing)
+            {
+                print("Right " + rotationCount);
+                DeterminehetherRotatingRight();
+            }
         }
         RotateCam();
     }

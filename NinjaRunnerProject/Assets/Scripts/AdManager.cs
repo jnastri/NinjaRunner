@@ -2,14 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
 
 public class AdManager : MonoBehaviour
 {
+    #region singleton
+    public static AdManager instance { set; get; }
+
+    void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
+    [HideInInspector]
+    public bool paidNoAds;
+    [HideInInspector]
+    public bool loadingLevel;
+    [HideInInspector]
+    public string loadLevelName;
+
+    public void OnPlayButton()
+    {
+        if (!paidNoAds)
+        {
+            if (Advertisement.IsReady())
+            {
+                Advertisement.Show("video", new ShowOptions() { resultCallback = HandleAdResults });
+            }
+        }
+    }
+
     public void ShowAdAfterLevel()
     {
-        if (Advertisement.IsReady())
+        if (!paidNoAds)
         {
-            Advertisement.Show("video", new ShowOptions() { resultCallback = HandleAdResults });
+            if (Advertisement.IsReady())
+            {
+                Advertisement.Show("video", new ShowOptions() { resultCallback = HandleAdResults });
+            }
         }
     }
 
@@ -26,13 +57,25 @@ public class AdManager : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
+                GameManagerScript.instance.currentScrolls++;
+                if (loadingLevel)
+                {
+                    SceneManager.LoadScene(loadLevelName);
+                    loadingLevel = false;
+                }
                 Debug.Log("Get a Scroll");
                 break;
             case ShowResult.Skipped:
                 Debug.Log("Be sure to watch the ad all the way through to get a scroll for new in-game items");
+                if (loadingLevel)
+                {
+                    SceneManager.LoadScene(loadLevelName);
+                    loadingLevel = false;
+                }
                 break;
             case ShowResult.Failed:
                 Debug.Log("Player failed to launch the ad ?Internet?");
+                loadingLevel = false;
                 break;
             default:
                 break;
