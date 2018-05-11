@@ -10,6 +10,8 @@ public class SwipeControls : MonoBehaviour {
 
     private Vector2 startPos;
 
+    public float swipeDistVertical;
+
     Player playerClass;
     public GameObject playerObject;
 
@@ -43,7 +45,7 @@ public class SwipeControls : MonoBehaviour {
 
                 case TouchPhase.Ended:
 
-                    float swipeDistVertical = (new Vector3(0, touch.position.y, 0) - new Vector3(0, startPos.y, 0)).magnitude;
+                    swipeDistVertical = (new Vector3(0, touch.position.y, 0) - new Vector3(0, startPos.y, 0)).magnitude;
 
                     if (swipeDistVertical > minSwipeDistY)
 
@@ -55,11 +57,20 @@ public class SwipeControls : MonoBehaviour {
 
                         //Jump ();
 
-                        else if (swipeValue < 0) { }//down swipe
-                        playerClass.isScalingDown = true;
+                        else if (swipeValue < 0) {
+                            playerClass.SlideController();
+                        }//down swipe
+                        
+
+                        
 
                         //Shrink ();
 
+                    }
+
+                    else if (swipeDistVertical < minSwipeDistY)
+                    {
+                        playerClass.jumpBool = true;
                     }
 
                     float swipeDistHorizontal = (new Vector3(touch.position.x, 0, 0) - new Vector3(startPos.x, 0, 0)).magnitude;

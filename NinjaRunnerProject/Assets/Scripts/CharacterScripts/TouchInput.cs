@@ -12,6 +12,8 @@ public class TouchInput : MonoBehaviour {
 
 
 
+
+
     private void Start()
     {
 
@@ -80,7 +82,8 @@ public class TouchInput : MonoBehaviour {
                     if (touch.phase == TouchPhase.Began)
                     {
 
-                        recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+                            recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+                        
                     }
                     if (touch.phase == TouchPhase.Ended)
                     {

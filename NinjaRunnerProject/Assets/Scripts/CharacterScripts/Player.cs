@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
         playerController.Move(velocity * Time.deltaTime);
     }
 
-    void SlideController()
+    public void SlideController()
     { 
         bool isSmaller = isScalingDown;
 

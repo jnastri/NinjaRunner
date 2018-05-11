@@ -10,17 +10,19 @@ public class Button : MonoBehaviour {
 
     Player playerClass;
     public GameObject playerObject;
+    private SwipeControls swipeScript;
 
     private void Start()
     {
         mat = GetComponent<Renderer>().material;
+        swipeScript = GetComponent<SwipeControls>();
         playerClass = playerObject.GetComponent<Player>();
     }
 
     void OnTouchDown()
     {
-        Debug.Log("Pressed the button");
         playerClass.jumpBool = true;
+        Debug.Log("Pressed the button");
         mat.color = selectedColor;
     }
     void OnTouchUp()
@@ -31,6 +33,8 @@ public class Button : MonoBehaviour {
     void OnTouchStay()
     {
         Debug.Log("Button is still being pressed");
+
+
         mat.color = selectedColor;
     }
     void OnTouchExit()
