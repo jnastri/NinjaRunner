@@ -16,11 +16,11 @@ public class SwipeControls : MonoBehaviour {
     Player playerClass;
     public GameObject playerObject;
 
-    PanelScrolling panelScrolling;
+    public PanelScrolling panelScrolling;
 
     [SerializeField]
     private Scene activeScene;
-    private string sceneName;
+    public string sceneName;
 
     
 
@@ -37,7 +37,7 @@ public class SwipeControls : MonoBehaviour {
             panelScrolling = null;
         }
 
-        else if (sceneName == "MainMenu")
+        if (sceneName == "MainMenu")
         {
             playerClass = null;
             playerObject = null;
