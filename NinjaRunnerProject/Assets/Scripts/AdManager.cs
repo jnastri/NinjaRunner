@@ -57,7 +57,6 @@ public class AdManager : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                GameManagerScript.instance.currentScrolls++;
                 if (loadingLevel)
                 {
                     SceneManager.LoadScene(loadLevelName);
