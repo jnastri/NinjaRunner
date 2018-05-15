@@ -12,8 +12,6 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         instance = this;
         Load();
-
-        Debug.Log(Helper.Serialize<SaveState>(state));
     }
 
     //Save the whole state of this saveState script to the player pref.
@@ -35,5 +33,43 @@ public class SaveManager : MonoBehaviour
             Save();
 
         }
+    }
+
+    //Check if the skin is owned
+    public bool IsSkinOwned(int index)
+    {
+        //Check if the bit is set, if so the skin is owned
+        return(state.skinOwned & (1 << index)) != 0;
+    }
+
+    //Check if the level pack is owned
+    public bool IsLevelPackOwned(int index)
+    {
+        //Check if the bit is set, if so the skin is owned
+        return (state.skinOwned & (1 << index)) != 0;
+    }
+
+    //Unlock a skin in the "skinOwned" int
+    public void UnlockSkin(int index)
+    {
+        // Toggle on the bit at index
+        // To toggle on use |=
+        // To toggle off a bit use alt+94 then = (Example: ^= )
+        state.skinOwned |= 1 << index;
+    }
+
+    //Unlock a level in the "levelPackOwned" int
+    public void UnlockLevelPack(int index)
+    {
+        // Toggle on the bit at index
+        // To toggle on use |=
+        // To toggle off a bit use alt+94 then = (Example: ^= )
+        state.levelPackOwned |= 1 << index;
+    }
+
+    //Reset the whole save file
+    public void ResetSave()
+    {
+        PlayerPrefs.DeleteKey("save");
     }
 }
