@@ -121,7 +121,9 @@ public class SwipeControls : MonoBehaviour {
 
                         if (swipeValue > 0)
                         {
-                            panelScrolling.touchRight = true;
+
+                            panelScrolling.touchLeft = true;
+                            Debug.Log("Swiped Right");
                         }
                         //right swipe
 
@@ -130,7 +132,8 @@ public class SwipeControls : MonoBehaviour {
 
                         else if (swipeValue < 0)
                         {
-                            panelScrolling.touchLeft = true;
+                            panelScrolling.touchRight = true;
+                            Debug.Log("Swiped Left");
                         }//left swipe
 
                         //MoveLeft ();
