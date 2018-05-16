@@ -27,35 +27,24 @@ public class SwipeControls : MonoBehaviour {
 
     private void Start()
     {
-        
-        activeScene = SceneManager.GetActiveScene();
-        sceneName = activeScene.name;
 
-        if(sceneName == "JR_Test")
-        {
-            playerClass = playerObject.GetComponent<Player>();
-            panelScrolling = null;
-        }
+        //DetermineControls();
 
-        if (sceneName == "MainMenu")
-        {
-            playerClass = null;
-            playerObject = null;
-            panelScrolling = GetComponent<PanelScrolling>();
-        }
-        
+
     }
     void Update()
     {
-        if (sceneName == "MainMenu")
-        {
-            MainMenuControls();
-        }
 
-        else if (sceneName == "JR_Test")
-        {
-            LevelControls();
-        }
+        DetermineControls();
+        /*  if (sceneName == "MainMenu")
+          {
+              MainMenuControls();
+          }
+
+          else if (sceneName == "JR_Test")
+          {
+              LevelControls();
+          } */
     }
 
     void MainMenuControls()
@@ -224,5 +213,33 @@ public class SwipeControls : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    public string DetermineSceneType(string input)
+    {
+        return sceneName = input;
+
+
+    }
+
+    public void DetermineControls()
+    {
+        //activeScene = SceneManager.GetActiveScene();
+        //sceneName = activeScene.name;
+        if (sceneName == "Level")
+        {
+            playerClass = playerObject.GetComponent<Player>();
+            panelScrolling = null;
+            LevelControls();
+        }
+
+        else if (sceneName == "Menu")
+        {
+            playerClass = null;
+            playerObject = null;
+            panelScrolling = GetComponent<PanelScrolling>();
+            MainMenuControls();
+        }
+
     }
 }
