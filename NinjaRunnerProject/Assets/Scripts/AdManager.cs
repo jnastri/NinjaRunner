@@ -31,6 +31,11 @@ public class AdManager : MonoBehaviour
                 Advertisement.Show("video", new ShowOptions() { resultCallback = HandleAdResults });
             }
         }
+        else
+        {
+            SceneManager.LoadScene(loadLevelName);
+            loadingLevel = false;
+        }
     }
 
     public void ShowAdAfterLevel()
@@ -41,6 +46,11 @@ public class AdManager : MonoBehaviour
             {
                 Advertisement.Show("video", new ShowOptions() { resultCallback = HandleAdResults });
             }
+        }
+        else
+        {
+            SceneManager.LoadScene(loadLevelName);
+            loadingLevel = false;
         }
     }
 
