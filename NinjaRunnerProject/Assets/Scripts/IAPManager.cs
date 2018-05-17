@@ -179,11 +179,13 @@ public class IAPManager : MonoBehaviour, IStoreListener
         if (String.Equals(args.purchasedProduct.definition.id, productScrolls25, StringComparison.Ordinal))
         {
             //Give 25 scrolls
+            SaveManager.instance.state.scrollOwned += 25;
         }
         // Or ... a non-consumable product has been purchased by this user.
         else if (String.Equals(args.purchasedProduct.definition.id, productScrolls50, StringComparison.Ordinal))
         {
             //Give 50 Scrolls
+            SaveManager.instance.state.scrollOwned += 50;
         }
         // Or ... a subscription product has been purchased by this user.
         else if (String.Equals(args.purchasedProduct.definition.id, noAds, StringComparison.Ordinal))

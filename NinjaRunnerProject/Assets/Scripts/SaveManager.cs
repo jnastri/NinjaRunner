@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//
+// This script is used to actively used stored data in the SaveState script.
+// This script should be called when you would like to unlock a skin after the player purchase it from the shop or is rewarded for a type of feat.
+//
+//This belongs on the game manager
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

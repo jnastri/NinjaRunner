@@ -45,9 +45,16 @@ public class Player : MonoBehaviour
     public bool jumpBool;
 
     Controller2D playerController;
+
+    [SerializeField]
+    SpriteRenderer curSkin;
     // Use this for initialization
     void Start ()
     {
+        //Determine which skin the player has equipped
+        curSkin = GetComponentInChildren<SpriteRenderer>();
+        curSkin.sprite = SaveManager.instance.state.currentSkin;
+
         playerController = GetComponent<Controller2D>();
         originalSize = transform.localScale;
 
