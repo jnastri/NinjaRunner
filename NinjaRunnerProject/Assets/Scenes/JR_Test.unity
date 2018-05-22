@@ -6704,6 +6704,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114325427802778770, guid: 6afb2ee6068fb71458ad19f80ba91c4e,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6afb2ee6068fb71458ad19f80ba91c4e, type: 2}
   m_IsPrefabParent: 0
@@ -6718,13 +6723,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2008281924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 570cc7892e5750b45b47b30eb6924476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelChanger: {fileID: 0}
   levelName: MainMenu
+  isOnClick: 0
 --- !u!1 &2029117146
 GameObject:
   m_ObjectHideFlags: 0
@@ -6735,8 +6741,8 @@ GameObject:
   - component: {fileID: 2029117149}
   - component: {fileID: 2029117148}
   - component: {fileID: 2029117147}
-  - component: {fileID: 2029117150}
   - component: {fileID: 2029117151}
+  - component: {fileID: 2029117150}
   m_Layer: 0
   m_Name: FadeOut
   m_TagString: Untagged
@@ -6820,8 +6826,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029117146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.04821, y: 4.4152126, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalPosition: {x: 154, y: -22.6, z: 0}
+  m_LocalScale: {x: 400, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 30
@@ -6834,11 +6840,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2029117146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4dc17fd729536e43a308352b9760f6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 570cc7892e5750b45b47b30eb6924476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeLevel: 0
-  levelName: 
+  levelChanger: {fileID: 0}
+  levelName: GameOver
+  isOnClick: 0
 --- !u!50 &2029117151
 Rigidbody2D:
   serializedVersion: 4

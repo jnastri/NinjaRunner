@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     {
         //Determine which skin the player has equipped
         curSkin = GetComponentInChildren<SpriteRenderer>();
+        if(SaveManager.instance.state.currentSkin != null)
         curSkin.sprite = SaveManager.instance.state.currentSkin;
 
         playerController = GetComponent<Controller2D>();
