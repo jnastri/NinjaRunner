@@ -13,12 +13,18 @@ public class PanelScrolling : MonoBehaviour
     Quaternion ogRot;
     public bool touchLeft;
     public bool touchRight;
+
+    public GameObject rotateCube;
+    public Transform rotateCubeTransform;
+    public bool touchUp;
+    public bool touchDown;
 	// Use this for initialization
 	void Start ()
     {
         ogRot = transform.rotation;
         newMenuLocation = menus[0];
         rotationCount = 0;
+        rotateCubeTransform = rotateCube.transform;
 	}
 	
 	// Update is called once per frame
@@ -129,5 +135,13 @@ public class PanelScrolling : MonoBehaviour
     {
         //transform.Rotate(Vector3.up, 90);
         transform.rotation = Quaternion.Lerp(transform.rotation, newMenuLocation.rotation, Time.deltaTime * scrollSpeed);
+    }
+
+    void RotateLevels()
+    {
+        if (touchUp)
+        {
+
+        }
     }
 }
