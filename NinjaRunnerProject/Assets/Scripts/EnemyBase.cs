@@ -36,9 +36,12 @@ public class EnemyBase : MonoBehaviour {
     public bool Rabbit; 
     public bool doesEnemyFloat;
 
+    private GameObject levelChanger;
+
     // Use this for initialization
     void Start() {
         controller = GetComponent<EnemyController>();
+        levelChanger = GameObject.Find("LevelChanger");
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -204,6 +207,13 @@ public class EnemyBase : MonoBehaviour {
     }
 
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.SetActive(false);
+            levelChanger.GetComponent<LevelChanger>().FadeToLevel("GameOver");
+        }
+    }
 
- 
 }
